@@ -1,0 +1,3 @@
+gymservice
+ItBrJqIiVheLL7OI
+mongodb+srv://gymservice:<password>@productioncluster-gplvm.mongodb.net/test?retryWrites=true&w=majority
