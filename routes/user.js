@@ -18,13 +18,4 @@ router.put('/update', uc.modifyUserById);
 /* DELETE: Delete Users */
 router.delete('/delete', uc.deleteyUsersById);
 
-router.post('/login', uc.auth, function(req, res) {
-    res.redirect('/');
-});
-
-router.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-});
-
 module.exports = router;
