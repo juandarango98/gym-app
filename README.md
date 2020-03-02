@@ -11,7 +11,9 @@ $ npm install
 $ npm start
 `
 
-You must vave installed: mongod
+## Requirements
+You must have NodeJs
+You must have installed: mongod
 
 ## Important information
 You need to create a environment variable named MONGOPASSWORD=<yourDatabasePassword>
