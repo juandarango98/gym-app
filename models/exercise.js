@@ -1,3 +1,5 @@
+"use strict";
+
 var getDb = require('./util/dbManager').getDb;
 
 class Exercise{
@@ -10,7 +12,7 @@ class Exercise{
 
     save() {
         const db = getDb();
-        db.collection('exercises').insertOne(this)
+        return db.collection('exercises').insertOne(this)
         .then(result =>{
             console.log(result);
         })
@@ -19,6 +21,10 @@ class Exercise{
         });
     }
 
+    fetchAll() {
+        //db.
+    }
+
 }
 
-export Exercise;
+exports.Exercise = Exercise;
