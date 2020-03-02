@@ -8,15 +8,17 @@ let _db;
 const pass = process.env.MONGOPASSWORD;
 
 const mongoConnect = (callback) => {
-    //MongoClient.connect(`mongodb+srv://gymservice:${pass}@productioncluster-gplvm.mongodb.net/test?retryWrites=true&w=majority`)
-    MongoClient.connect(`mongodb+srv://gymservice:ItBrJqIiVheLL7OI@productioncluster-gplvm.mongodb.net/test?retryWrites=true&w=majority`)
+    //MongoClient.connect(`mongodb+srv://gymservice:${pass}@productioncluster-gplvm.mongodb.net/gymService?retryWrites=true&w=majority`)
+    MongoClient.connect('mongodb+srv://gymservice:ItBrJqIiVheLL7OI@productioncluster-gplvm.mongodb.net/dev?retryWrites=true&w=majority',{
+        useUnifiedTopology: true })
     .then(client=>{
         console.log('Connected!');
         _db = client.db();
-        callback(client);
+        callback();
     })  
     .catch(err => {
         console.log(err);
+        throw err;
     });
 };
 
