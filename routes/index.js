@@ -33,4 +33,9 @@ router.get('/profile', (req,res)=>{
   }
   res.render('index', { title: 'Express', page: 'profile', calendar:calendar, user:user  })
 })
+
+router.get('/biblioteca',(req,res)=>{
+
+  res.render('index', { title: 'Express', page: 'biblioteca' })
+})
 module.exports = router;
