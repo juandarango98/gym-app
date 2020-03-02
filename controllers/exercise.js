@@ -17,9 +17,7 @@ exports.postAddExcercise = (req, res) => {
     exercise
         .save()
         .then(() => {
-            console.log('Exercise added!');
-            //res.redirect(''); //TODO: Redirect to a page?
-            res.status(200).send('<h1>Añadido un nuevo ejercicio:</h1>');
+            res.status(200).json({message: "Added"})
         })
         .catch(err => {
             console.log(err);
@@ -83,8 +81,7 @@ exports.deleteyExercisesById = (req, res) => {
     exerciseO.deleteById(id)
         .then(() => {
             console.log('DELETED EXERCISE!');
-            //res.redirect(''); //TODO: Redirect to a page?
-            res.status(200).send('<h1>Eliminado el ejercicio</h1>');
+            res.status(200).json({message: "Deleted"});
         })
         .catch(err => {
             console.log(err);
