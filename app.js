@@ -1,6 +1,6 @@
 //sass --watch scss/index.scss:public/stylesheets/style.css
 
-var createError = require('http-errors');
+//var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,7 +12,7 @@ const exerciseRouter = require('./routes/exercise');
 //const historicalRouter = require('./routes/historical');
 //const routineRouter = require('./routes/routine');
 //const trainmentRouter = require('./routes/trainment');
-//const userRouter = require('./routes/user');
+const userRouter = require('./routes/user');
 const errorRouter = require('./routes/errors');
 const dbManagerv = require('./util/dbManager').mongoConnect;
 
@@ -31,10 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/exercises', exerciseRouter);
-//app.use('/historicals', historicalController);
-//app.use('/routines', routineController);
-//app.use('/trainment', trainmentController);
-//app.use('/users', userController);
+//app.use('/historicals', historicalRouter);
+//app.use('/routines', routineRouter);
+//app.use('/trainments', trainmentRouter);
+app.use('/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(errorRouter);
