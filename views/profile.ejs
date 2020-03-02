@@ -8,84 +8,54 @@
                 <div class="row h-10">
                     <div class="col-12 col-md-6">
                         <div class="card centrado resumen" style='background-color: #77D676;'>
-                            <div class="row h-10">
-                                <div class="col-8">
 
-                                    <div class="title">
-                                        Peso
 
-                                    </div>
-                                    <div class="value">
-                                        <%=user.peso%>
-                                    </div>
-                                </div>
-                                <div class="col-4">
+                            <div class="title">
+                                Peso
 
-                                </div>
+                            </div>
+                            <div class="value">
+                                <%=user.peso%>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="card centrado resumen" style='background-color: #A6ADFF;'>
-                            <div class="row h-10">
-                                <div class="col-8">
+                            <div class="title">
+                                Altura
 
-                                    <div class="title">
-                                        Altura
-
-                                    </div>
-                                    <div class="value">
-                                        <%=user.altura%>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-
-                                </div>
+                            </div>
+                            <div class="value">
+                                <%=user.altura%>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="card centrado resumen" style='background-color: #FEC387;'>
-                            <div class="row h-10">
-                                <div class="col-8">
-
-                                    <div class="title">
-                                        Edad
-
-                                    </div>
-                                    <div class="value">
-                                        <%=user.edad%>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-
-                                </div>
+                            <div class="title">
+                                Edad
+                            </div>
+                            <div class="value">
+                                <%=user.edad%>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="card centrado resumen" style='background-color: #51B5FE;'>
-                            <div class="row h-10">
-                                <div class="col-8">
 
-                                    <div class="title">
-                                        Metabolismo
+                            <div class="title">
+                                Metabolismo
 
-                                    </div>
-                                    <div class="value">
-                                        <%if (user.genero){%>
-                                        <%=(user.peso*10)+(user.altura*6.25)-(user.edad*5) + 5 %>
-                                        <%}else{%>
-                                        <%=(user.peso*10)+(user.altura*6.25)-(user.edad*5) -161 %>
-                                        <%}%>
-                                        </div>
-                                </div>
-                                <div class="col-4">
-                            
-                                </div>
+                            </div>
+                            <div class="value">
+                                <%if (!user.genero){%>
+                                <%=(user.peso*10)+(user.altura*6.25)-(user.edad*5) + 5 %>
+                                <%}else{%>
+                                <%=(user.peso*10)+(user.altura*6.25)-(user.edad*5) -161 %>
+                                <%}%>
                             </div>
                         </div>
-                    </div>
+                     </div>
                 </div>
             </div>
         </div>
@@ -93,37 +63,37 @@
             <div class="calendar h-10 col-md-6 col-12 p-3">
                 <div class="date">
                     <h3><%= calendar.month %></h3>
-                                        <div class="days">
-                                            <div class="day">L</div>
-                                            <div class="day">M</div>
-                                            <div class="day">I</div>
-                                            <div class="day">J</div>
-                                            <div class="day">V</div>
-                                            <div class="day">S</div>
-                                            <div class="day">D</div>
-                                            <% calendar.days.forEach((day)=>{%>
-                                            <%if (calendar.day == day){ %>
-                                            <div class="number selected" onclick='getHistory(this)'><%= day %></div>
-                                            <%}else{%>
-                                            <div class="number" onclick='getHistory(this)'><%= day %></div>
-                                            <%}%>
+                                <div class="days">
+                                    <div class="day">L</div>
+                                    <div class="day">M</div>
+                                    <div class="day">I</div>
+                                    <div class="day">J</div>
+                                    <div class="day">V</div>
+                                    <div class="day">S</div>
+                                    <div class="day">D</div>
+                                    <% calendar.days.forEach((day)=>{%>
+                                    <%if (calendar.day == day){ %>
+                                    <div class="number selected" onclick='getHistory(this)'><%= day %></div>
+                                    <%}else{%>
+                                    <div class="number" onclick='getHistory(this)'><%= day %></div>
+                                    <%}%>
                         <%}) %>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class=" h-10 col-md-6 col-12 p-3">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Informacion
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="list-group list-group-flush" id='infoHistory'>
+                            </div>
+                        </div>
+                        <div class=" h-10 col-md-6 col-12 p-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Informacion
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush" id='infoHistory'>
 
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <script src="/js/profile.js"></script>
+                </div>
+            </div>
+            <script src="/js/profile.js"></script>
