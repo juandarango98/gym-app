@@ -1,21 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-const ec = require('../controllers/routine');
+const rc = require('../controllers/routine');
 
-/* POST: Add a new Exercise */
-router.post('/add', ec.postAddExcercise );
+/* POST: Add a new Routine */
+router.post('/add', rc.postAddRoutine );
 
-/* GET: get all exercises */
-router.get('/list', ec.getAllExercises );
+/* GET: get all routine */
+router.get('/list', rc.getAllRoutines );
 
-/* GET: Get a set of exercises by filter */
-router.get('/get', ec.getExercisesByFilter);
+/* GET: Get a set of routines by filter */
+router.get('/get', rc.getRoutinesByFilter);
 
-/* PUT: Modify exercise */
-router.put('/update', ec.modifyExercisesById);
+/* PUT: Modify routines */
+router.put('/update', rc.modifyRoutinesById);
 
-/* DELETE: Delete exercise */
-router.delete('/delete', ec.deleteyExercisesById);
+/* DELETE: Delete routine */
+router.delete('/delete', rc.deleteyRoutineById);
 
 module.exports = router;
+
