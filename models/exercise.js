@@ -5,12 +5,13 @@ const getDb = require('../util/dbManager').getDb;
 
 class Exercise {
 
-    constructor(name, videoUrl, difficulty, description, id) {
+    constructor(name, videoUrl, difficulty, description, id, muscle) {
         this.name = name;
         this.videoUrl = videoUrl;
         this.difficulty = difficulty;
         this.description = description;
-        this._id = id?new mongodb.ObjectID(id):undefined;
+        this.muscle = muscle;
+        this._id = id ? new mongodb.ObjectID(id) : undefined;
     }
 
     save() {
@@ -58,6 +59,28 @@ class Exercise {
             if (!isNaN(some)) {
                 query.difficulty = some;
             }
+        }
+        const db = getDb();
+        return db
+            .collection('exercises')
+            .find(query)
+            .toArray()
+            .then(exercises => {
+                return exercises;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    fetchMuscle(name, muscle) {
+        let query = {};
+        if (name) {
+            query.name = name;
+        }
+        if (muscle) {
+
+            query.difficulty = muscle;
         }
         const db = getDb();
         return db

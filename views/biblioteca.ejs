@@ -2,14 +2,22 @@
     <div class="container">
         <ul class="nav nav-tabs" id='bibliotecaTabs'>
             <li class="nav-item">
-                <a class="nav-link active" value="/trainments">Entrenamientos</a>
+                <a class="nav-link active" onclick='changeTab(this)' name="trainments">Entrenamientos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" value="/routines">Rutinas</a>
+                <a class="nav-link" onclick='changeTab(this)' name="routines">Rutinas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" value="/exercises">Ejercicios</a>
+                <a class="nav-link" onclick='changeTab(this)' name="exercises">Ejercicios</a>
             </li>
         </ul>
+        <div class="biblioteca-list row p-5">
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="card items-lista">
+                    <h3 class=" centrado-v">Perdida de peso</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script src="/js/biblioteca.js"></script>

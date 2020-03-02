@@ -4,13 +4,13 @@ var router = express.Router();
 const ec = require('../controllers/exercise');
 
 /* POST: Add a new Exercise */
-router.post('/add', ec.postAddExcercise );
+router.post('/add', ec.postAddExcercise);
 
 /* GET: get all exercises */
-router.get('/list', ec.getAllExercises );
+router.get('/list', ec.getAllExercises);
 
 /* GET: Get a set of exercises by filter */
-router.get('/get', ec.getExercisesByFilter);
+router.get('/get', ec.getExercisesByMuscle);
 
 /* PUT: Modify exercise */
 router.put('/update', ec.modifyExercisesById);

@@ -6,12 +6,12 @@ exports.postAddExcercise = (req, res) => {
     const videoUrl = req.body.videoUrl;
     const difficulty = req.body.difficulty;
     const description = req.body.description;
-
-    const exercise = new Exercise(name, videoUrl, difficulty, description);
+    const muscle = req.body.muscle;
+    const exercise = new Exercise(name, videoUrl, difficulty, description, muscle);
     exercise
         .save()
         .then(() => {
-            res.status(200).json({message: "Added"})
+            res.status(200).json({ message: "Added" })
         })
         .catch(err => {
             console.log(err);
@@ -42,17 +42,31 @@ exports.getExercisesByFilter = (req, res) => {
         })
 }
 
+exports.getExercisesByMuscle = (req, res) => {
+    const exerciseO = new Exercise();
+    const name = req.query.name;
+    const muscle = req.query.muscle;
+    exerciseO.fetchMuscle(name, muscle)
+        .then(exercises => {
+            res.status(200).json(exercises);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
 exports.modifyExercisesById = (req, res) => {
     const id = req.body.id;
     const name = req.body.name;
     const videoUrl = req.body.videoUrl;
     const difficulty = req.body.difficulty;
     const description = req.body.description;
-    const exercise = new Exercise(name, videoUrl, difficulty, description, id);
+    const muscle = req.body.muscle;
+    const exercise = new Exercise(name, videoUrl, difficulty, description, id, muscle);
     exercise
         .save()
         .then(() => {
-            res.status(200).json({message: "Updated"});
+            res.status(200).json({ message: "Updated" });
         })
         .catch(err => {
             console.log(err);
@@ -64,7 +78,7 @@ exports.deleteyExercisesById = (req, res) => {
     const exerciseO = new Exercise();
     exerciseO.deleteById(id)
         .then(() => {
-            res.status(200).json({message: "Deleted"});
+            res.status(200).json({ message: "Deleted" });
         })
         .catch(err => {
             console.log(err);
