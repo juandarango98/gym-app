@@ -2,11 +2,12 @@
 
 const Exercise = require('../models/exercise');
 
-exports.getAddExcercise = (req, res) => {
+exports.getAddExcercise = (req, res, next) => {
     //TODO: Renderizar la vista (Template)
+    next();
 }
 
-exports.postAddExcercise = (req, res) => {
+exports.postAddExcercise = (req, res, next) => {
     const name = req.body.name;
     const videoUrl = req.body.videoUrl;
     const difficulty = req.body.difficulty;
@@ -20,4 +21,5 @@ exports.postAddExcercise = (req, res) => {
             console.log('Exercise added!');
             res.redirect(''); //TODO: Redirect to a page?
         });
+    next();
 }

@@ -5,13 +5,13 @@ var logger = require('morgan');
 
 //Custom:
 var indexRouter = require('./routes/index');
-const exerciseController = require('./controllers/exercise');
-const historicalController = require('./controllers/historical');
-const routineController = require('./controllers/routine');
-const trainmentController = require('./controllers/trainment');
-const userController = require('./controllers/user');
-const errorController = require('./controllers/errors');
-const dbManagerv = require('./util/dbManager').mongoConnect;
+const exerciseRouter = require('./routes/exercise');
+//const historicalRouter = require('./routes/historical');
+//const routineRouter = require('./routes/routine');
+//const trainmentRouter = require('./routes/trainment');
+//const userRouter = require('./routes/user');
+const errorRouter = require('./routes/errors');
+//const dbManagerv = require('./util/dbManager').mongoConnect;
 
 
 var app = express();
@@ -27,13 +27,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/', exerciseController);
-app.use('/', historicalController);
-app.use('/', routineController);
-app.use('/', trainmentController);
-app.use('/', userController);
+app.use('/exercises', exerciseRouter);
+//app.use('/historicals', historicalController);
+//app.use('/routines', routineController);
+//app.use('/trainment', trainmentController);
+//app.use('/users', userController);
 
 // catch 404 and forward to error handler
-app.use(errorController.get404);
+app.use(errorRouter);
 
 module.exports = app;
