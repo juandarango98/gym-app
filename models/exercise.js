@@ -10,7 +10,7 @@ class Exercise {
         this.videoUrl = videoUrl;
         this.difficulty = difficulty;
         this.description = description;
-        this._id = new mongodb.ObjectID(id);
+        this._id = id?new mongodb.ObjectID(id):undefined;
     }
 
     save() {
@@ -26,8 +26,8 @@ class Exercise {
                 .insertOne(this);
         }
         return dbOp
-            .then(result => {
-                console.log(result.ops);
+            .then(() => {
+                //Nothing tom show
             })
             .catch(err => {
                 console.log(err);
@@ -40,8 +40,7 @@ class Exercise {
             .collection('exercises')
             .find()
             .toArray()
-            .then(exercises => {
-                console.log(exercises);
+            .then((exercises) => {
                 return exercises;
             })
             .catch(err => {
@@ -66,7 +65,6 @@ class Exercise {
             .find(query)
             .toArray()
             .then(exercises => {
-                console.log(exercises);
                 return exercises;
             })
             .catch(err => {
@@ -79,8 +77,8 @@ class Exercise {
         return db
             .collection('exercises')
             .deleteOne({ _id: new mongodb.ObjectID(id) })
-            .then(result => {
-                console.log(result);
+            .then(() => {
+                //Nothing to show
             })
             .catch(err => {
                 console.log(err);
@@ -88,8 +86,5 @@ class Exercise {
     }
 
 }
-
-
-
 
 module.exports = Exercise;
