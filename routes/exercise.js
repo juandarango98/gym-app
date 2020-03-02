@@ -15,7 +15,6 @@ router.get('/list', ec.getAllExercises );
 /* GET: get set of exercises by filter */
 router.get('/get', ec.getExercisesByFilter);
 
-
 /* PUT: modify exercise */
 router.put('/update', ec.modifyExercisesById);
 
