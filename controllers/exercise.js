@@ -30,15 +30,7 @@ exports.getAllExercises = (req, res) => {
     const exerciseO = new Exercise();
     exerciseO.fetchAll()
         .then(exercises => {
-            console.log('Finded Exercises!');
-
-            //TODO, obtener datos de acá
-            let ex = "";
-            exercises.forEach(element => {
-                ex = ex + "<li>" + element.name + "</li>";
-            });
-            res.status(200).send('<ul>' + ex + '</ul>');
-            //END TODO
+            res.status(200).json(exercises);
         })
         .catch(err => {
             console.log(err);

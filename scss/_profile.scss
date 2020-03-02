@@ -1,3 +1,6 @@
+.container {
+  padding-top: 20px;
+}
 .profile-photo {
   max-width: 80%;
   max-height: 80%;
@@ -52,7 +55,7 @@
       }
       .day,
       .number {
-        width: 48px;
+        width: 14.2%;
         height: 48px;
         display: flex;
         justify-content: center;
@@ -65,7 +68,7 @@
       }
 
       .day:last-child,
-      .number:nth-child(6n + 1) {
+      .number:nth-child(7n) {
         color: #f44336;
         font-weight: 600;
       }
