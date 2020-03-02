@@ -1,8 +1,9 @@
 "use strict";
 
-var getDb = require('./util/dbManager').getDb;
+const getDb = require('../util/dbManager').getDb;
 
 class Exercise{
+
     constructor(name, videoUrl, difficulty, description){
         this.name = name;
         this.videoUrl = videoUrl;
@@ -27,4 +28,5 @@ class Exercise{
 
 }
 
-exports.Exercise = Exercise;
+
+module.exports = Exercise;
