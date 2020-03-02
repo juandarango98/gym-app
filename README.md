@@ -13,6 +13,11 @@ $ npm start
 
 You must vave installed: mongod
 
+## Important information
+You need to create a environment variable named MONGOPASSWORD=<yourDatabasePassword>
+
+For this you must create a Mongo database with an username gymservice and the link must be like: mongodb+srv://gymservice:<Password>@productioncluster-gplvm.mongodb.net/dev?retryWrites=true&w=majority
+
 ## Licence
 The MIT License (MIT)
 
