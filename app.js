@@ -11,7 +11,7 @@ const exerciseRouter = require('./routes/exercise');
 //const trainmentRouter = require('./routes/trainment');
 //const userRouter = require('./routes/user');
 const errorRouter = require('./routes/errors');
-//const dbManagerv = require('./util/dbManager').mongoConnect;
+const dbManagerv = require('./util/dbManager').mongoConnect;
 
 
 var app = express();
@@ -35,5 +35,9 @@ app.use('/exercises', exerciseRouter);
 
 // catch 404 and forward to error handler
 app.use(errorRouter);
+
+dbManagerv(()=>{
+    
+});
 
 module.exports = app;
