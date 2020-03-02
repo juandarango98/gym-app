@@ -1,0 +1,84 @@
+<div class="box centrado">
+    <div name="changer">
+        <p class="title">Iniciar Sesión</p>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Email</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Contraseña</label>
+        </div>
+        <div class="loginAnimate" (click)="login()">
+            <button class="btn btn-secondary centrado-h" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Ingresar
+            </button>
+        </div>
+        <br>
+        <div style=" color:white">
+            ¿No tienes una cuenta?
+            <a class="link" onclick="change()">Registrate</a>
+        </div>
+    </div>
+
+    <div name="changer" class="d-none">
+        <p class="title">Registrarse</p>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Nombre</label>
+        </div>
+        <div class='container' style=" color:white">
+            <div class="row w-10">
+                <div class="col ">
+                    <input type="radio" name='idType' value="Nit" required>
+                    <label class='white'>Nit</label>
+                </div>
+                <div class="col ">
+                    <input type="radio" name='idType' value="Cedula" required>
+                    <label class='white'>Cédula</label>
+                </div>
+            </div>
+        </div>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Identificacion</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Email</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Contraseña</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Confirmar Contraseña</label>
+        </div>
+        <div class="ma" (click)="register()">
+            <button class="btn btn-secondary centrado-h" type="button">
+                Registrarse
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <br>
+        <div style=" color:white">
+            ¿Ya tienes una cuenta?
+            <a class="link" onclick="change()">Ingresa</a>
+        </div>
+    </div>
+</div>
+<script>
+    function change() {
+        document.getElementsByName("changer").forEach(ele => {
+            ele.classList.toggle("d-none")
+        })
+    }
+</script>
