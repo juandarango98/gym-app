@@ -1,3 +1,62 @@
+.profile-photo {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 50px; }
+
+.profile-data {
+  padding: 30px; }
+  .profile-data .resumen {
+    width: 80%;
+    height: 80px;
+    color: white; }
+    .profile-data .resumen .title {
+      padding: 0;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 0 20px; }
+    .profile-data .resumen .value {
+      padding: 0 30px;
+      font-size: 30px;
+      font-weight: 800; }
+
+.calendar {
+  width: 800px;
+  height: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .calendar .date {
+    width: 400px;
+    padding: 30px;
+    box-sizing: border-box; }
+    .calendar .date h3 {
+      margin: 0 0 20px;
+      padding: 0;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center; }
+    .calendar .date .days {
+      display: flex;
+      flex-wrap: wrap; }
+      .calendar .date .days .number {
+        cursor: pointer; }
+      .calendar .date .days .day,
+      .calendar .date .days .number {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .calendar .date .days .day.selected,
+        .calendar .date .days .number.selected {
+          background: #352d4d;
+          color: #ffffff;
+          border-radius: 50%; }
+      .calendar .date .days .day:last-child,
+      .calendar .date .days .number:nth-child(6n + 1) {
+        color: #f44336;
+        font-weight: 600; }
+
 .btn-primary {
   background-color: #352d4d;
   color: #ffffff; }
@@ -249,11 +308,6 @@
       color: #f5f6f9;
       text-decoration: none;
       box-shadow: none; }
-
-.wrapper {
-  font-family: sans-serif;
-  background: url(/images/login.jpg);
-  background-size: cover; }
 
 .box {
   width: 400px;
@@ -580,7 +634,9 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  background: url(/images/login.jpg);
+  background-size: cover; }
 
 .fit {
   height: fit-content;
@@ -601,5 +657,11 @@ body {
   position: relative;
   left: 50%;
   transform: translate(-50%, 0); }
+
+.wrapper {
+  background: #f6f6f6;
+  position: relative;
+  height: 100%;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

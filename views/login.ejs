@@ -1,100 +1,84 @@
-<!DOCTYPE html>
-<html>
+<div class="box centrado">
+    <div name="changer">
+        <p class="title">Iniciar Sesión</p>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Email</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Contraseña</label>
+        </div>
+        <div class="loginAnimate" (click)="login()">
+            <button class="btn btn-secondary centrado-h" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Ingresar
+            </button>
+        </div>
+        <br>
+        <div style=" color:white">
+            ¿No tienes una cuenta?
+            <a class="link" onclick="change()">Registrate</a>
+        </div>
+    </div>
 
-<head>
-    <title><%= title %></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body class="wrapper">
-    <div class="box centrado">
-        <div>
-            <p class="title">Iniciar Sesión</p>
-            <div class="inputBox">
-                <input type="text" required>
-                <label>Email</label>
-            </div>
-            <div class="inputBox">
-                <input type="password" required>
-                <label>Contraseña</label>
-            </div>
-            <div class="loginAnimate" (click)="login()">
-                <button class="btn btn-secondary centrado-h" type="submit">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Ingresar
-                </button>
-            </div>
-            <br>
-            <div style=" color:white">
-                ¿No tienes una cuenta?
-                <a class="link" (click)="irRegister()">Registrate</a>
+    <div name="changer" class="d-none">
+        <p class="title">Registrarse</p>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Nombre</label>
+        </div>
+        <div class='container' style=" color:white">
+            <div class="row w-10">
+                <div class="col ">
+                    <input type="radio" name='idType' value="Nit" required>
+                    <label class='white'>Nit</label>
+                </div>
+                <div class="col ">
+                    <input type="radio" name='idType' value="Cedula" required>
+                    <label class='white'>Cédula</label>
+                </div>
             </div>
         </div>
-
-        <!-- <div>
-                <p class="title">Registrarse</p>
-                <div class="inputBox">
-                    <input type="text" required>
-                    <label>Nombre</label>
-                </div>
-                <div class='container'>
-                    <div class="row w-10">
-                        <div class="col ">
-                            <input type="radio" name='idType' value="Nit" required>
-                            <label class='white'>Nit</label>
-                        </div>
-                        <div class="col ">
-                            <input type="radio" name='idType' value="Cedula" required>
-                            <label class='white'>Cédula</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="inputBox">
-                    <input type="text" required>
-                    <label>Identificacion</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" required>
-                    <label>Email</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" required>
-                    <label>Contraseña</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" required>
-                    <label>Confirmar Contraseña</label>
-                </div>
-                <div class="ma" (click)="register()">
-                    <button class="btn btn-secondary centrado-h" type="button">
-                        Registrarse
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-                <br>
-                <div class='white'>
-                    ¿Ya tienes una cuenta?
-                    <a class="link" (click)="irLogin()">Ingresa</a>
-                </div>
-            </div> -->
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Identificacion</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" required>
+            <label>Email</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Contraseña</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" required>
+            <label>Confirmar Contraseña</label>
+        </div>
+        <div class="ma" (click)="register()">
+            <button class="btn btn-secondary centrado-h" type="button">
+                Registrarse
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <br>
+        <div style=" color:white">
+            ¿Ya tienes una cuenta?
+            <a class="link" onclick="change()">Ingresa</a>
+        </div>
     </div>
-</body>
+</div>
+<script>
+    function change() {
+        document.getElementsByName("changer").forEach(ele => {
+            ele.classList.toggle("d-none")
+        })
+    }
+</script>
