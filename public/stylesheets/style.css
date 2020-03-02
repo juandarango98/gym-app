@@ -632,6 +632,19 @@
   height: 10px !important;
   width: 10px !important; }
 
+.biblioteca-list {
+  height: 80vh;
+  background-color: white; }
+
+.items-lista {
+  height: 150px;
+  text-align: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer; }
+  .items-lista.large {
+    height: 300; }
+
 body {
   overflow: auto;
   position: absolute;
