@@ -1,18 +1,25 @@
 "use strict";
 const User = require('../models/user');
+var passport = require('passport');
 
-exports.postAddUser = (req, res) => {
+//Register
+exports.postAddUser = async (req, res) => {
+
     const name = req.body.name;
     const email = req.body.email;
     const age = req.body.age;
+    const pass = req.body.pass;
     const gender = req.body.gender;
     const weight = req.body.weight;
     const height = req.body.height;
 
-    const user = new User(name, email, age, gender, weight, height);
+    const user = new User(name, email,pass, age, gender, weight, height);
     user
         .save()
         .then(() => {
+            passport.authenticate('local')(req, res, function () {
+                res.redirect('/');
+            });
             res.status(200).json({message: "Added"})
         })
         .catch(err => {
@@ -49,11 +56,13 @@ exports.modifyUserById = (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const age = req.body.age;
+    const pass = req.body.pass;
     const gender = req.body.gender;
     const weight = req.body.weight;
     const height = req.body.height;
 
-    const user = new User(name, email, age, gender, weight, height, id);
+
+    const user = new User(name, email,pass, age, gender, weight, height, id);
     user
         .save()
         .then(() => {
@@ -75,3 +84,8 @@ exports.deleteyUsersById = (req, res) => {
             console.log(err);
         })
 }
+
+exports.auth = () =>{
+    passport.authenticate('local');
+}
+

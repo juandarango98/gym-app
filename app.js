@@ -15,6 +15,8 @@ const trainmentRouter = require('./routes/trainment');
 const userRouter = require('./routes/user');
 const errorRouter = require('./routes/errors');
 const dbManagerv = require('./util/dbManager').mongoConnect;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 var app = express();
@@ -30,6 +32,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+// passport config
+var Account = require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
 app.use('/exercises', exerciseRouter);
 app.use('/historicals', historicalRouter);
 app.use('/routines', routineRouter);

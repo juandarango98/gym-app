@@ -5,9 +5,10 @@ const getDb = require('../util/dbManager').getDb;
 
 class User {
 
-    constructor(name, email, age, gender, weight, height, id) {  
+    constructor(name, email,pass, age, gender, weight, height, id) {  
         this.name = name;
         this.email = email;
+        this.pass = pass;
         this.age = age;
         this.gender = gender;
         this.weight = weight;
