@@ -23,7 +23,7 @@ router.get("/profile", (req,res)=>{
   const calendar={
     month:months[hoy.getMonth()], 
     day:hoy.getDate(), 
-    days:dias, 
+    days:dias,  
   };
   const user ={
     genero:0,
