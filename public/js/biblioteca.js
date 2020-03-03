@@ -53,7 +53,7 @@ const buscarEjercicios = (categoria) => {
       else if (tabN == "routines") {
         resultado += `<div class="col-xl-4 col-md-6 col-12">
                     <div class="card items-lista">
-                        <h3  onclick="detalles(${ele},false)">${ele.name}</h3>
+                        <h3 onclick="detalles('${ele.routines}',false)" data-toggle="modal" data-target="#biblioteca-detail">${ele.name}</h3>
                         <h5>${ele.focus}  </h5>
                         <svg viewBox="0 0 80 80" class="ap-4"  style=" fill:#F5DE93" onclick="guardarHistorico('${ele.name}','rutina')">
                         <use xlink:href="/icons/add.svg#add"></use>
@@ -65,7 +65,7 @@ const buscarEjercicios = (categoria) => {
       else {
         resultado += `<div class="col-xl-4 col-md-6 col-12">
                     <div class="card items-lista">
-                        <h3  onclick="detalles(${ele},true)">${ele.name}</h3>
+                        <h3 onclick="detalles(${ele},true)" data-toggle="modal" data-target="#biblioteca-detail">${ele.name}</h3>
                         <h5>${ele.focus} nivel: ${ele.difficulty}</h5>
                         <h5> ${ele.routines.size} rutinas </h5>
                         <svg viewBox="0 0 80 80" class="ap-4"  style=" fill:#F5DE93" onclick="guardarHistorico('${ele.name}', 'entrenamiento')">
@@ -94,12 +94,12 @@ const guardarHistorico = (item, event) => {
     headers: { "Content-Type": "application/json" }
   });
 };
-const detalles = (elemento, training) => {
-  console.log("hola");
-  let cont = document.querySelector("#biblioteca-detail .modal-content");
+const detalles = (elemento, trainin) => {
+  console.log(elemento);
+  let cont = document.querySelector("#biblioteca-detail .modal-body");
   console.log(cont);
   let res = "";
-  if (training) {
+  if (trainin) {
     res += `
         <table class="table">
         <thead>
@@ -142,7 +142,6 @@ const detalles = (elemento, training) => {
         </table>`;
     cont.innerHTML = res;
   }
-  document.querySelector("#biblioteca-detail").modal("show");
 };
 changeTab(document.querySelector("#bibliotecaTabs .nav-link"));
 

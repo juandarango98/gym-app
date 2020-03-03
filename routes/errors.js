@@ -1,9 +1,9 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const ec = require('../controllers/errors');
+const ec = require("../controllers/errors");
 
 /* GET: Render 404 page*/
-router.get('/exercises', ec.get404 );
+router.get("/exercises", ec.get404 );
 
 module.exports = router;

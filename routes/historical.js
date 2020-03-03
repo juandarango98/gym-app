@@ -1,21 +1,21 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const hc = require('../controllers/historical');
+const hc = require("../controllers/historical");
 
 /* POST: Add a new Historical */
-router.post('/add', hc.postAddHistorical );
+router.post("/add", hc.postAddHistorical );
 
 /* GET: get all Historical */
-router.get('/list', hc.getAllHistoricals );
+router.get("/list", hc.getAllHistoricals );
 
 /* GET: Get a set of Historical by filter */
-router.get('/get', hc.getHistoricalsByFilter);
+router.get("/get", hc.getHistoricalsByFilter);
 
 /* PUT: Modify Historical */
-router.put('/update', hc.modifyHistoricalById);
+router.put("/update", hc.modifyHistoricalById);
 
 /* DELETE: Delete Historical */
-router.delete('/delete', hc.deleteyHistoricalById);
+router.delete("/delete", hc.deleteyHistoricalById);
 
 module.exports = router;
