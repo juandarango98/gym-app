@@ -21,7 +21,7 @@ class Exercise {
       //Update
       dbOp = db.collection("exercises")
         .updateOne({ _id: this._id }, { $set: this });
-    } else {
+    } else { 
       //Create
       dbOp = db.collection("exercises")
         .insertOne(this);
