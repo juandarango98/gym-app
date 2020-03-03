@@ -8,8 +8,8 @@ let _db;
 const pass = process.env.MONGOPASSWORD;
 
 const mongoConnect = (callback) => {
-    //MongoClient.connect(`mongodb+srv://gymservice:${pass}@productioncluster-gplvm.mongodb.net/gymService?retryWrites=true&w=majority`,{
-    MongoClient.connect('mongodb+srv://gymservice:ItBrJqIiVheLL7OI@productioncluster-gplvm.mongodb.net/dev?retryWrites=true&w=majority', {
+    MongoClient.connect(`mongodb+srv://gymservice:${pass}@productioncluster-gplvm.mongodb.net/dev?retryWrites=true&w=majority`, {
+        //MongoClient.connect('mongodb+srv://gymservice:ItBrJqIiVheLL7OI@productioncluster-gplvm.mongodb.net/dev?retryWrites=true&w=majority',{
         useUnifiedTopology: true
     })
         .then(client => {
