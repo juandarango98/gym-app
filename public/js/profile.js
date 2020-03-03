@@ -8,7 +8,6 @@ const getHistory = (day) => {
     load.textContent = 'loading';
     resum.append(load);
     fetch(`/historicals/get/?user=userId&date=${day.textContent}-2-2020`).then(res => res.json()).then((list) => {
-
         resum.innerHTML = '';
         list.forEach(element => {
             let display = document.createElement("li");
@@ -19,8 +18,4 @@ const getHistory = (day) => {
     })
 
 }
-
 const resum = document.getElementById('infoHistory');
-
-const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-const espaciados = [2, 5, 6, 2, 4, 0, 2, 5, 1, 3, 6, 1];

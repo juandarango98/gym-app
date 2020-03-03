@@ -1,7 +1,7 @@
 <div class="box centrado">
     <div name="changer">
         <p class="title">Iniciar Sesión</p>
-        <form action="">
+        <form id='login-form' action="/users/login" method="post">
             <div class="inputBox">
                 <input type="text" required name="email">
                 <label>Email</label>
@@ -11,7 +11,7 @@
                 <label>Contraseña</label>
             </div>
             <div class="loginAnimate">
-                <button class="btn btn-secondary centrado-h" type="submit">
+                <button class="btn btn-secondary centrado-h login-btn" type="submit">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -29,7 +29,7 @@
 
     <div name="changer" class="d-none">
         <p class="title">Registrarse</p>
-        <form>
+        <form action="/users/add" method="post">
             <div class="inputBox">
                 <input type="text" required name="name">
                 <label>Nombre</label>
@@ -37,11 +37,11 @@
             <div class='container' style=" color:white">
                 <div class="row w-10">
                     <div class="col ">
-                        <input type="radio" name='genero' value="0" required>
+                        <input type="radio" name='gender' value="0" required>
                         <label class='white'>Hombre</label>
                     </div>
                     <div class="col ">
-                        <input type="radio" name='genero' value="1" required>
+                        <input type="radio" name='gender' value="1" required>
                         <label class='white'>Mujer</label>
                     </div>
                 </div>
@@ -51,15 +51,15 @@
                 <label>Email</label>
             </div>
             <div class="inputBox">
-                <input type="text" required name=estatura>
+                <input type="text" required name=height>
                 <label>Estatura</label>
             </div>
             <div class="inputBox">
-                <input type="text" required name=estatura>
+                <input type="text" required name=age>
                 <label>Edad</label>
             </div>
             <div class="inputBox">
-                <input type="text" required name=estatura>
+                <input type="text" required name=weight>
                 <label>Peso</label>
             </div>
             <div class="inputBox">
@@ -70,16 +70,16 @@
                 <input type="password" name=pass2 required>
                 <label>Confirmar Contraseña</label>
             </div>
+            <div class="loginAnimate" (click)="register()">
+                <button class="btn btn-secondary centrado-h" type="submit">
+                    Registrarse
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </form>
-        <div class="loginAnimate" (click)="register()">
-            <button class="btn btn-secondary centrado-h" type="button">
-                Registrarse
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
         <br>
         <div style=" color:white">
             ¿Ya tienes una cuenta?
@@ -87,10 +87,4 @@
         </div>
     </div>
 </div>
-<script>
-    function change() {
-        document.getElementsByName("changer").forEach(ele => {
-            ele.classList.toggle("d-none")
-        })
-    }
-</script>
+<script src='/js/login.js'></script>
