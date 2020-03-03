@@ -1,46 +1,46 @@
 "use strict";
 const changeTab = (tab) => {
-    const grupoMuscular = ['Pierna', 'Abdomen', 'Pecho', 'Espalda', 'Hombro', 'Brazo', 'Ver Todo'];
-    const enfoques = ['Masa Muscular', 'Perdida de Peso', 'Resistencia', 'Ver Todo'];
-    document.querySelector('#bibliotecaTabs .nav-link.active').classList.toggle('active');
-    tab.classList.toggle('active');
-    let list = document.querySelector('.biblioteca-list');
-    let lista = []
-    if (tab.name == 'exercises') {
-        lista = grupoMuscular
-    } else {
-        lista = enfoques
-    }
-    list.innerHTML = '';
-    let resultado = '';
-    lista.forEach(ele => {
-        resultado += `
+  const grupoMuscular = ["Pierna", "Abdomen", "Pecho", "Espalda", "Hombro", "Brazo", "Ver Todo"];
+  const enfoques = ["Masa Muscular", "Perdida de Peso", "Resistencia", "Ver Todo"];
+  document.querySelector("#bibliotecaTabs .nav-link.active").classList.toggle("active");
+  tab.classList.toggle("active");
+  let list = document.querySelector(".biblioteca-list");
+  let lista = [];
+  if (tab.name == "exercises") {
+    lista = grupoMuscular;
+  } else {
+    lista = enfoques;
+  }
+  list.innerHTML = "";
+  let resultado = "";
+  lista.forEach(ele => {
+    resultado += `
             <div class="col-xl-4 col-md-6 col-12">
                 <div class="card items-lista" style='height:150px' onclick="buscarEjercicios('${ele}')">
                     <h3 class=" centrado-v" >${ele}</h3>
                 </div>
             </div>`;
-    })
-    list.innerHTML = resultado;
+  });
+  list.innerHTML = resultado;
 
 
-}
+};
 const buscarEjercicios = (categoria) => {
-    let tabN = document.querySelector('#bibliotecaTabs .nav-link.active').name;
+  let tabN = document.querySelector("#bibliotecaTabs .nav-link.active").name;
 
-    let route = `/${tabN}/get/?focus:'${categoria}'`;
-    let list = document.querySelector('.biblioteca-list');
+  let route = `/${tabN}/get/?focus:'${categoria}'`;
+  let list = document.querySelector(".biblioteca-list");
 
-    fetch(route).then(res => res.json()).then((lista) => {
-        let resultado = '';
-        list.innerHTML = '';
-        lista.forEach(ele => {
-            console.log(ele)
-            if (tabN == 'exercises')
-                resultado += `
+  fetch(route).then(res => res.json()).then((lista) => {
+    let resultado = "";
+    list.innerHTML = "";
+    lista.forEach(ele => {
+      console.log(ele);
+      if (tabN == "exercises")
+        resultado += `
             <div class="col-xl-4 col-md-6 col-12">
                 <div class="card items-lista">
-                    <h3 >${ele.name}</h3>
+                    <h3>${ele.name}</h3>
                     <h5>${ele.muscle} nivel: ${ele.difficulty} </h5>
                     <a href='${ele.link}'> Video</a>
                     <p> ${ele.description}</p>
@@ -50,10 +50,10 @@ const buscarEjercicios = (categoria) => {
                     <p> Hiciste este ejercicio hoy?</p>
                 </div>
             </div>`;
-            else if (tabN == 'routines') {
-                resultado += `<div class="col-xl-4 col-md-6 col-12">
+      else if (tabN == "routines") {
+        resultado += `<div class="col-xl-4 col-md-6 col-12">
                     <div class="card items-lista">
-                        <h3 >${ele.name}</h3>
+                        <h3  onclick="detalles(${ele},false)">${ele.name}</h3>
                         <h5>${ele.focus}  </h5>
                         <svg viewBox="0 0 80 80" class="ap-4"  style=" fill:#F5DE93" onclick="guardarHistorico('${ele.name}','rutina')">
                         <use xlink:href="/icons/add.svg#add"></use>
@@ -61,11 +61,11 @@ const buscarEjercicios = (categoria) => {
                         <p> Hiciste esta rutina hoy?</p>
                     </div>
                 </div>`;
-            }
-            else {
-                resultado += `<div class="col-xl-4 col-md-6 col-12">
+      }
+      else {
+        resultado += `<div class="col-xl-4 col-md-6 col-12">
                     <div class="card items-lista">
-                        <h3 >${ele.name}</h3>
+                        <h3  onclick="detalles(${ele},true)">${ele.name}</h3>
                         <h5>${ele.focus} nivel: ${ele.difficulty}</h5>
                         <h5> ${ele.routines.size} rutinas </h5>
                         <svg viewBox="0 0 80 80" class="ap-4"  style=" fill:#F5DE93" onclick="guardarHistorico('${ele.name}', 'entrenamiento')">
@@ -74,26 +74,76 @@ const buscarEjercicios = (categoria) => {
                         </svg>
                     </div>
                 </div>`;
-            }
-        })
-        list.innerHTML = resultado;
+      }
+    });
+    list.innerHTML = resultado;
 
-    })
-}
+  });
+};
 const guardarHistorico = (item, event) => {
-    let hoy = new Date();
-    console.log(event);
-    fetch('/historicals/add', {
-        method: 'POST',
-        body: JSON.stringify({
-            date: `${hoy.getDate()}/${hoy.getMonth() + 1}/2020`,
-            event: event,
-            data: item,
-            user: '5e5d9f054b929500175edae0'
-        }),
-        headers: { "Content-Type": "application/json" }
-    })
-}
-changeTab(document.querySelector('#bibliotecaTabs .nav-link'));
+  let hoy = new Date();
+  console.log(event);
+  fetch("/historicals/add", {
+    method: "POST",
+    body: JSON.stringify({
+      date: `${hoy.getDate()}/${hoy.getMonth() + 1}/2020`,
+      event: event,
+      data: item,
+      user: "5e5d9f054b929500175edae0"
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
+};
+const detalles = (elemento, training) => {
+  console.log("hola");
+  let cont = document.querySelector("#biblioteca-detail .modal-content");
+  console.log(cont);
+  let res = "";
+  if (training) {
+    res += `
+        <table class="table">
+        <thead>
+            < tr >
+            <th scope="col">rutina</th>
+            <th scope="col">Dia</th>
+             </tr >
+            </thead >
+            <tbody>`;
+    elemento.routines.forEach(ele=>{
+      res+=`
+            <tr>
+                <td>${ele.routine}</td>
+                <td>${ele.day}</td>
+            </tr>`;
+    });
+    res+=`
+            </tbody>
+        </table>`;
+    cont.innerHTML = res;
+  } else {
+    res += `
+        <table class="table">
+        <thead>
+            < tr >
+            <th scope="col">Ejercicio</th>
+            <th scope="col">repeticiones</th>
+             </tr >
+            </thead >
+            <tbody>`;
+    elemento.routines.forEach(ele => {
+      res += `
+            <tr>
+                <td>${ele.exercise}</td>
+                <td>${ele.reps}</td>
+            </tr>`;
+    });
+    res += `
+            </tbody>
+        </table>`;
+    cont.innerHTML = res;
+  }
+  document.querySelector("#biblioteca-detail").modal("show");
+};
+changeTab(document.querySelector("#bibliotecaTabs .nav-link"));
 
 
