@@ -5,6 +5,7 @@ const uc = require('../controllers/user');
 
 /* POST: Add a new User */
 router.post('/add', uc.postAddUser);
+router.post('/login', uc.login);
 
 /* GET: get all Users */
 router.get('/list', uc.getAllUsers);

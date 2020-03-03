@@ -35,6 +35,7 @@ const buscarEjercicios = (categoria) => {
         let resultado = '';
         list.innerHTML = '';
         lista.forEach(ele => {
+            console.log(ele)
             if (tabN == 'exercises')
                 resultado += `
             <div class="col-xl-4 col-md-6 col-12">

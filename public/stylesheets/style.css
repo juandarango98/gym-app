@@ -24,7 +24,8 @@
 
 .history-info {
   height: 40vh;
-  overflow: scroll; }
+  overflow-y: scroll;
+  overflow-x: hidden; }
 
 .calendar {
   width: 800px;
