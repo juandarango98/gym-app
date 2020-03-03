@@ -10,7 +10,7 @@ class Trainment {
         this.focus = focus;
         this.difficulty = difficulty;
         this.routines = routines;
-        this._id = id?new mongodb.ObjectID(id):undefined;
+        this._id = id ? new mongodb.ObjectID(id) : undefined;
     }
 
     save() {

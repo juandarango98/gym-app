@@ -22,6 +22,10 @@
       font-size: 30px;
       font-weight: 800; }
 
+.history-info {
+  height: 40vh;
+  overflow: scroll; }
+
 .calendar {
   width: 800px;
   height: 450px;
@@ -637,7 +641,7 @@
   background-color: white; }
 
 .items-lista {
-  height: 150px;
+  min-height: 150px;
   text-align: center;
   align-items: center;
   border-radius: 50px;

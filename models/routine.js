@@ -7,10 +7,9 @@ class Routine {
 
     constructor(name, trainment, focus, exercises, id) {
         this.name = name;
-        this.trainment = trainment;
         this.focus = focus;
         this.exercises = exercises;
-        this._id = id?new mongodb.ObjectID(id):undefined;
+        this._id = id ? new mongodb.ObjectID(id) : undefined;
     }
 
     save() {

@@ -1,23 +1,25 @@
 <div class="box centrado">
     <div name="changer">
         <p class="title">Iniciar Sesión</p>
-        <div class="inputBox">
-            <input type="text" required>
-            <label>Email</label>
-        </div>
-        <div class="inputBox">
-            <input type="password" required>
-            <label>Contraseña</label>
-        </div>
-        <div class="loginAnimate" (click)="login()">
-            <button class="btn btn-secondary centrado-h" type="submit">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Ingresar
-            </button>
-        </div>
+        <form action="">
+            <div class="inputBox">
+                <input type="text" required name="email">
+                <label>Email</label>
+            </div>
+            <div class="inputBox">
+                <input type="password" required name="pass">
+                <label>Contraseña</label>
+            </div>
+            <div class="loginAnimate">
+                <button class="btn btn-secondary centrado-h" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Ingresar
+                </button>
+            </div>
+        </form>
         <br>
         <div style=" color:white">
             ¿No tienes una cuenta?
@@ -27,39 +29,49 @@
 
     <div name="changer" class="d-none">
         <p class="title">Registrarse</p>
-        <div class="inputBox">
-            <input type="text" required>
-            <label>Nombre</label>
-        </div>
-        <div class='container' style=" color:white">
-            <div class="row w-10">
-                <div class="col ">
-                    <input type="radio" name='idType' value="Nit" required>
-                    <label class='white'>Nit</label>
-                </div>
-                <div class="col ">
-                    <input type="radio" name='idType' value="Cedula" required>
-                    <label class='white'>Cédula</label>
+        <form>
+            <div class="inputBox">
+                <input type="text" required name="name">
+                <label>Nombre</label>
+            </div>
+            <div class='container' style=" color:white">
+                <div class="row w-10">
+                    <div class="col ">
+                        <input type="radio" name='genero' value="0" required>
+                        <label class='white'>Hombre</label>
+                    </div>
+                    <div class="col ">
+                        <input type="radio" name='genero' value="1" required>
+                        <label class='white'>Mujer</label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="inputBox">
-            <input type="text" required>
-            <label>Identificacion</label>
-        </div>
-        <div class="inputBox">
-            <input type="text" required>
-            <label>Email</label>
-        </div>
-        <div class="inputBox">
-            <input type="password" required>
-            <label>Contraseña</label>
-        </div>
-        <div class="inputBox">
-            <input type="password" required>
-            <label>Confirmar Contraseña</label>
-        </div>
-        <div class="ma" (click)="register()">
+            <div class="inputBox">
+                <input type="text" required name=email>
+                <label>Email</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" required name=estatura>
+                <label>Estatura</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" required name=estatura>
+                <label>Edad</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" required name=estatura>
+                <label>Peso</label>
+            </div>
+            <div class="inputBox">
+                <input type="password" name=pass required>
+                <label>Contraseña</label>
+            </div>
+            <div class="inputBox">
+                <input type="password" name=pass2 required>
+                <label>Confirmar Contraseña</label>
+            </div>
+        </form>
+        <div class="loginAnimate" (click)="register()">
             <button class="btn btn-secondary centrado-h" type="button">
                 Registrarse
                 <span></span>
